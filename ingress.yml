@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+spec:
+  rules:
+  - host: api.ecervantes.com
+    http:
+      paths:
+      - path: /flavors
+        pathType: Prefix
+        backend:
+          service:
+            name: apinodejs-service
+            port:
+              number: 5000
